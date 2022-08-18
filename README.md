@@ -10,6 +10,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+## Before Build
+
+Com a aplicação do backend rodando é necessario navegar até a pasta 'TASKMANAGEMENT.FRONTEND' e rodar o comando 'node seeds.js' para popular o usuario 'admin' e senha '12345678'
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
