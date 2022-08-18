@@ -1,0 +1,37 @@
+.divSnack {
+   p,
+   span {
+      font-family: Roboto, Arial, Helvetica, sans-serif !important;
+   }
+   .divClose {
+      cursor: pointer;
+   }
+
+   .snackErro .divClose {
+      color: white;
+   }
+   .SnackBarComponent .divClose {
+      color: #27642b;
+   }
+}
+
+.divClose {
+   position: absolute;
+   right: -12px;
+   top: -12px;
+   background: #433c36;
+   border-radius: 50%;
+   height: 24px;
+   width: 24px;
+   color: white;
+   cursor: pointer;
+
+   .mat-icon {
+      height: 20px;
+      width: 20px;
+      font-size: 20px;
+      left: 2px;
+      top: 2px;
+      position: relative;
+   }
+}

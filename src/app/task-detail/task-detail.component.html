@@ -1,0 +1,78 @@
+<div>
+   <form [formGroup]="taskForm">
+      <div class="row">
+         <div class="col-6">
+            <div class="card card-padding">
+               <div>
+                  <h2>{{ taskForm.get('title').value }}</h2>
+               </div>
+               <hr />
+               <div>
+                  <p formControlName="description">
+                     {{ taskForm.get('description').value }}
+                  </p>
+               </div>
+            </div>
+            <div class="card card-padding">
+               <div style="line-height: 35px">
+                  <label> Atividades</label>
+                  <button
+                     mat-flat-button
+                     color="primary"
+                     (click)="createActivity()"
+                     style="float: right"
+                  >
+                     Nova atividade
+                  </button>
+               </div>
+               <div class="activityList" *ngFor="let activity of activityList">
+                  <div class="activityHeader">
+                     <div style="font-weight: bold">
+                        <span>
+                           #{{ activity.sequence }} -
+                           {{ activity.generatorName }}
+                        </span>
+                     </div>
+                     <div>Registrou em {{ activity.date }}</div>
+                  </div>
+                  <div class="activityDescription">
+                     <p>{{ activity.description }}</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-4">
+            <div class="card card-padding">
+               <mat-form-field class="component" appearance="none">
+                  <mat-label>Status</mat-label>
+                  <mat-select formControlName="status" name="status" disabled>
+                     <mat-option
+                        *ngFor="let option of optionsStatus"
+                        [value]="option.codigo"
+                     >
+                        {{ option.descricao }}
+                     </mat-option>
+                  </mat-select>
+               </mat-form-field>
+               <mat-form-field class="component" appearance="none">
+                  <mat-label>Gerador</mat-label>
+                  <input
+                     matInput
+                     disabled
+                     [value]="taskForm.get('generatorName').value"
+                  />
+               </mat-form-field>
+               <mat-form-field class="component" appearance="none">
+                  <mat-label>Responsável</mat-label>
+                  <input
+                     matInput
+                     disabled
+                     [value]="taskForm.get('responsibleName').value"
+                  />
+               </mat-form-field>
+            </div>
+         </div>
+      </div>
+   </form>
+</div>

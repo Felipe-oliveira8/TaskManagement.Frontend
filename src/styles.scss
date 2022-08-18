@@ -1,1 +1,106 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+   --azul: #1e90ff;
+   --azulEscuro: #4169e1;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   position: relative;
+   font-family: 'Roboto', sans-serif;
+   background-color: #f4f7fa;
+}
+
+hr {
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+}
+
+.table {
+   width: 100%;
+   border-collapse: collapse;
+
+   th,
+   td {
+      padding: 0.75rem;
+   }
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   border-radius: 0.5rem;
+   background-color: #fff;
+   margin: 1.25rem 0 1.25rem 0;
+   box-shadow: 0 0.25rem 0.5rem #e6edef;
+
+   .card-head {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #edf1f7;
+      font-size: 1rem;
+      font-weight: 600;
+   }
+
+   .card-body {
+      padding: 1rem 1.5rem;
+   }
+}
+
+.mat-form-field-wrapper {
+   margin-bottom: -1.25em !important;
+}
+
+.mat-form-field-infix {
+   padding: 0 !important;
+}
+
+.mat-form-field-subscript-wrapper {
+   margin-top: -1.33em !important;
+}
+
+.error-text-size {
+   font-size: 0.8rem;
+   vertical-align: middle;
+   margin: 0px 8px;
+}
+
+.card-padding {
+   padding: 15px;
+}
+
+.align-center {
+   text-align: center;
+}
+
+.btn-style {
+   background-color: #302638;
+   border-color: #302638;
+}
+
+.custom-dialog-container .mat-dialog-container {
+   padding: 0px;
+}
+
+.btn-margin {
+   margin-left: 1rem;
+}
+
+/* SnackBar */
+.SnackBarComponent {
+   background: #bbf5bb !important;
+   color: #27642b;
+   white-space: pre-line;
+}
+
+.snackErro {
+   background: #f67975 !important;
+   color: white;
+   white-space: pre-line;
+}

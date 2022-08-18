@@ -1,0 +1,35 @@
+<div class="login-page">
+   <mat-card class="form">
+      <mat-card-content>
+         <form [formGroup]="dataUser">
+            <p>Please login to continue</p>
+            <mat-form-field appearance="none" [style.width.px]="270">
+               <input
+                  matInput
+                  placeholder="Username"
+                  formControlName="username"
+                  required
+               />
+               <mat-error *ngIf="dataUser.get('username').errors">
+                  Please inform your user name
+               </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="none" [style.width.px]="270">
+               <input
+                  matInput
+                  type="password"
+                  placeholder="Password"
+                  formControlName="password"
+                  required
+               />
+               <mat-error *ngIf="dataUser.get('password').errors">
+                  Please inform your password
+               </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="authenticate()">
+               Login
+            </button>
+         </form>
+      </mat-card-content>
+   </mat-card>
+</div>

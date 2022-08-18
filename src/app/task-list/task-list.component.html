@@ -1,0 +1,52 @@
+<div class="container">
+   <div class="card card-padding">
+      <div style="line-height: 35px">
+         <label class="list-title"> Lista de Tarefas</label>
+         <button
+            class="addButton"
+            mat-flat-button
+            (click)="createTask()"
+            style="float: right; background: var(--azul); color: #fff"
+         >
+            Adicionar Tarefa
+         </button>
+      </div>
+      <hr />
+      <div>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th style="width: 10%">Número</th>
+                  <th style="width: 35%">Título</th>
+                  <th style="width: 15%">Status</th>
+                  <th style="width: 20%">Gerador</th>
+                  <th style="width: 20%">Responsavel</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let task of tasks" (click)="taskDetail(task)">
+                  <td>
+                     <label>{{ task.sequenceNumber }}</label>
+                  </td>
+                  <td>
+                     <label>{{ task.title }}</label>
+                  </td>
+                  <td>
+                     <button
+                        class="status {{ classStatus(status[task.status]) }}"
+                     >
+                        {{ status[task.status] }}
+                     </button>
+                  </td>
+                  <td>
+                     <label>{{ task.generatorName }}</label>
+                  </td>
+                  <td>
+                     <label>{{ task.responsibleName }}</label>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>

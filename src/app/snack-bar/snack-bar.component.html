@@ -1,0 +1,10 @@
+<div class="divSnack">
+   <span style="white-space: pre-line">{{ data.message }}</span>
+   <p *ngIf="data.error">
+      {{ data.error }}
+   </p>
+</div>
+
+<div class="divClose" (click)="fechar()">
+   <mat-icon>close</mat-icon>
+</div>

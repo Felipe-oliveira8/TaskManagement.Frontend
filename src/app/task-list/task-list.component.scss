@@ -1,0 +1,87 @@
+.container {
+   width: 100%;
+   padding-left: 15px;
+   padding-right: 15px;
+   margin-left: auto;
+   margin-right: auto;
+}
+td {
+   cursor: pointer;
+   border: 1px solid #dee2e6;
+   padding: 6px 8px;
+   width: 40px;
+   vertical-align: middle;
+   text-align: center;
+   overflow: hidden;
+}
+
+table {
+   border: 1px solid #dee2e6;
+}
+
+thead {
+   background-color: #dee2e6;
+}
+
+label {
+   cursor: pointer;
+   margin: 0;
+}
+
+.card-header-color {
+   background-color: white;
+   border: 1px solid #dee2e6;
+}
+
+.status {
+   border-radius: 15px;
+   border-width: 1.4px;
+   padding: 0.05rem 0.8rem;
+   font-size: 0.8rem;
+   background-color: white;
+   opacity: 0.6;
+   width: 150px;
+}
+
+.list-title {
+   padding: 12px 0 0 12px;
+   font-weight: bold;
+   font-size: large;
+   cursor: inherit;
+}
+
+.not-started {
+   border-color: #e96c4a !important;
+   color: #e96c4a !important;
+}
+
+.in-progress {
+   border-color: #2b82c5 !important;
+   color: #2b82c5 !important;
+}
+.waiting {
+   border-color: #ffb822 !important;
+   color: #ffb822 !important;
+}
+.concluded {
+   border-color: #11b46d !important;
+   color: #11b46d !important;
+}
+
+.addButton {
+   font-family: 'Roboto', sans-serif;
+   text-transform: uppercase;
+   background: var(--azul);
+   border: 0;
+   color: #ffffff;
+   font-size: 14px;
+   -webkit-transition: all 0.3 ease;
+   transition: all 0.3 ease;
+   cursor: pointer;
+}
+
+.addButton:hover,
+.addButton:active,
+.addButton:focus {
+   background: var(--azulEscuro);
+}

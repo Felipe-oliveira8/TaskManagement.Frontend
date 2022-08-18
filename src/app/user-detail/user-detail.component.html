@@ -1,0 +1,105 @@
+<div class="mat-dialog-size">
+   <form [formGroup]="user">
+      <div class="form">
+         <div class="row">
+            <div class="colum">
+               <mat-form-field appearance="none">
+                  <mat-label for="name">Nome</mat-label>
+                  <input matInput formControlName="name" id="name" required />
+                  <mat-error *ngIf="user.get('name').errors">
+                     Campo invalido
+                  </mat-error>
+               </mat-form-field>
+               <mat-form-field appearance="none">
+                  <mat-label for="user">Usuario</mat-label>
+                  <input matInput formControlName="user" id="user" required />
+                  <mat-error *ngIf="user.get('user').errors">
+                     Campo invalido
+                  </mat-error>
+               </mat-form-field>
+               <mat-form-field appearance="none">
+                  <mat-label for="password">Senha</mat-label>
+                  <input
+                     matInput
+                     formControlName="password"
+                     type="password"
+                     required
+                  />
+                  <mat-error *ngIf="user.get('password').errors">
+                     Campo invalido
+                  </mat-error>
+               </mat-form-field>
+            </div>
+            <div class="colum">
+               <mat-form-field appearance="none">
+                  <mat-label for="email">Email</mat-label>
+                  <input matInput formControlName="email" id="email" />
+                  <mat-error *ngIf="user.get('email').errors">
+                     Campo invalido
+                  </mat-error>
+               </mat-form-field>
+               <mat-form-field appearance="none">
+                  <mat-label>Telefone</mat-label>
+                  <input
+                     matInput
+                     formControlName="tel"
+                     type="tel"
+                     [dropSpecialCharacters]="false"
+                     mask="(00) 00000-0000"
+                  />
+                  <mat-error *ngIf="user.get('tel').errors">
+                     Campo invalido
+                  </mat-error>
+               </mat-form-field>
+               <mat-form-field appearance="none">
+                  <mat-label for="cpf">Cpf</mat-label>
+                  <input
+                     matInput
+                     formControlName="cpf"
+                     mask="000.000.000-00"
+                     [dropSpecialCharacters]="false"
+                     required
+                  />
+                  <mat-error *ngIf="user.get('cpf').errors">
+                     Campo invalido
+                  </mat-error>
+               </mat-form-field>
+            </div>
+         </div>
+      </div>
+      <div>
+         <div style="margin-left: 70%" *ngIf="data; else create">
+            <button
+               *ngIf="data.id != '62ebccf7102425f843c962c7'"
+               mat-flat-button
+               color="warn"
+               class="button"
+               (click)="removeUser()"
+            >
+               Remover Usuario
+            </button>
+            <button
+               *ngIf="data.id != '62ebccf7102425f843c962c7'"
+               mat-flat-button
+               color="primary"
+               class="button"
+               (click)="updateUser()"
+            >
+               Alterar Usuario
+            </button>
+         </div>
+         <ng-template #create>
+            <div>
+               <button
+                  mat-flat-button
+                  color="primary"
+                  (click)="createUser()"
+                  [disabled]="user.invalid"
+               >
+                  Cadastrar Usuario
+               </button>
+            </div>
+         </ng-template>
+      </div>
+   </form>
+</div>

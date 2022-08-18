@@ -1,0 +1,13 @@
+<mat-toolbar class="header" *ngIf="isLoggedIn">
+   <span> Task Management </span>
+   <span class="fill-remaining-space"></span>
+   <button mat-button [matMenuTriggerFor]="users">Users</button>
+   <mat-menu #users="matMenu">
+      <button mat-button (click)="clickListUser()">List Users</button>
+   </mat-menu>
+   <button mat-button [matMenuTriggerFor]="tasks">Tasks</button>
+   <mat-menu #tasks="matMenu">
+      <button mat-button (click)="clickListTasks()">List Tasks</button>
+   </mat-menu>
+   <button mat-button (click)="onLogout()" *ngIf="isLoggedIn">Logout</button>
+</mat-toolbar>

@@ -1,0 +1,36 @@
+<div class="container-padding">
+   <div class="register-task">
+      <form [formGroup]="activity">
+         <h2>Cadastro de Atividade</h2>
+         <hr />
+
+         <div>
+            <mat-form-field class="component" appearance="none">
+               <mat-label>Status</mat-label>
+               <mat-select formControlName="status" name="status" required>
+                  <mat-option
+                     *ngFor="let option of optionsStatus"
+                     [value]="option.codigo"
+                  >
+                     {{ option.descricao }}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </div>
+         <div class="description">
+            <angular-editor
+               formControlName="description"
+               [config]="editorConfig"
+            ></angular-editor>
+         </div>
+         <button
+            mat-flat-button
+            class="button"
+            (click)="createActivity()"
+            [disabled]="activity.invalid"
+         >
+            Adicionar Atividade
+         </button>
+      </form>
+   </div>
+</div>
