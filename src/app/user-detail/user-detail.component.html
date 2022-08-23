@@ -1,105 +1,212 @@
-<div class="mat-dialog-size">
-   <form [formGroup]="user">
-      <div class="form">
-         <div class="row">
-            <div class="colum">
-               <mat-form-field appearance="none">
-                  <mat-label for="name">Nome</mat-label>
-                  <input matInput formControlName="name" id="name" required />
-                  <mat-error *ngIf="user.get('name').errors">
-                     Campo invalido
-                  </mat-error>
-               </mat-form-field>
-               <mat-form-field appearance="none">
-                  <mat-label for="user">Usuario</mat-label>
-                  <input matInput formControlName="user" id="user" required />
-                  <mat-error *ngIf="user.get('user').errors">
-                     Campo invalido
-                  </mat-error>
-               </mat-form-field>
-               <mat-form-field appearance="none">
-                  <mat-label for="password">Senha</mat-label>
-                  <input
-                     matInput
-                     formControlName="password"
-                     type="password"
-                     required
-                  />
-                  <mat-error *ngIf="user.get('password').errors">
-                     Campo invalido
-                  </mat-error>
-               </mat-form-field>
+<div class="container">
+   <div class="row justify-content-md-center">
+      <div class="col-md-12">
+         <div class="card card-user">
+            <div class="card-header">
+               <h5 class="card-title">Cadastro de Usuario</h5>
             </div>
-            <div class="colum">
-               <mat-form-field appearance="none">
-                  <mat-label for="email">Email</mat-label>
-                  <input matInput formControlName="email" id="email" />
-                  <mat-error *ngIf="user.get('email').errors">
-                     Campo invalido
-                  </mat-error>
-               </mat-form-field>
-               <mat-form-field appearance="none">
-                  <mat-label>Telefone</mat-label>
-                  <input
-                     matInput
-                     formControlName="tel"
-                     type="tel"
-                     [dropSpecialCharacters]="false"
-                     mask="(00) 00000-0000"
-                  />
-                  <mat-error *ngIf="user.get('tel').errors">
-                     Campo invalido
-                  </mat-error>
-               </mat-form-field>
-               <mat-form-field appearance="none">
-                  <mat-label for="cpf">Cpf</mat-label>
-                  <input
-                     matInput
-                     formControlName="cpf"
-                     mask="000.000.000-00"
-                     [dropSpecialCharacters]="false"
-                     required
-                  />
-                  <mat-error *ngIf="user.get('cpf').errors">
-                     Campo invalido
-                  </mat-error>
-               </mat-form-field>
+            <div class="card-body">
+               <form [formGroup]="user">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label for="name">Nome</label>
+                           <input
+                              class="form-control"
+                              formControlName="name"
+                              id="name"
+                              [ngClass]="{
+                                 'is-invalid': user.get('name').errors
+                              }"
+                           />
+                           <div
+                              *ngIf="user.get('name').errors"
+                              class="text-danger"
+                           >
+                              <div *ngIf="user.controls.name.errors.required">
+                                 Necessario preencher o campo
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label for="email">Email</label>
+                           <input
+                              class="form-control"
+                              formControlName="email"
+                              id="email"
+                              [ngClass]="{
+                                 'is-invalid': user.get('email').errors
+                              }"
+                           />
+                           <div
+                              *ngIf="user.get('email').errors"
+                              class="text-danger"
+                           >
+                              <div *ngIf="user.controls.email.errors.required">
+                                 Necessario preencher o campo
+                              </div>
+                              <div *ngIf="user.controls.email.errors.email">
+                                 Email Invalido
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6 pr-1">
+                        <div class="form-group">
+                           <label for="user">Usuario</label>
+                           <input
+                              class="form-control"
+                              formControlName="user"
+                              id="user"
+                              [ngClass]="{
+                                 'is-invalid': user.get('user').errors
+                              }"
+                           />
+                           <div
+                              *ngIf="user.get('user').errors"
+                              class="text-danger"
+                           >
+                              <div *ngIf="user.controls.user.errors.required">
+                                 Necessario preencher o campo
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-6 pl-1">
+                        <div class="form-group">
+                           <label for="password">Senha</label>
+                           <input
+                              type="password"
+                              class="form-control"
+                              formControlName="password"
+                              id="password"
+                              [ngClass]="{
+                                 'is-invalid': user.get('password').errors
+                              }"
+                           />
+                           <div
+                              *ngIf="user.get('password').errors"
+                              class="text-danger"
+                           >
+                              <div
+                                 *ngIf="user.controls.password.errors.required"
+                              >
+                                 Necessario preencher o campo
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6 pr-1">
+                        <div class="form-group">
+                           <label for="tel">Telefone</label>
+                           <input
+                              class="form-control"
+                              formControlName="tel"
+                              id="tel"
+                              [dropSpecialCharacters]="false"
+                              mask="(00) 00000-0000"
+                              [ngClass]="{
+                                 'is-invalid': user.get('tel').errors
+                              }"
+                           />
+                           <div
+                              *ngIf="user.get('tel').errors"
+                              class="text-danger"
+                           >
+                              <div
+                                 *ngIf="
+                                    user.controls.tel.errors?.minlength ||
+                                    user.controls.tel.errors?.maxlength
+                                 "
+                              >
+                                 Campo Invalido
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-6 pl-1">
+                        <div class="form-group">
+                           <label for="cpf">Cpf</label>
+                           <input
+                              class="form-control"
+                              formControlName="cpf"
+                              id="cpf"
+                              mask="000.000.000-00"
+                              [dropSpecialCharacters]="false"
+                              [ngClass]="{
+                                 'is-invalid': user.get('cpf').errors
+                              }"
+                           />
+                           <div
+                              *ngIf="user.get('cpf').errors"
+                              class="text-danger"
+                           >
+                              <div *ngIf="user.controls.cpf.errors.required">
+                                 Necessario preencher o campo
+                              </div>
+                              <div
+                                 *ngIf="
+                                    user.controls.cpf.errors?.minlength ||
+                                    user.controls.cpf.errors?.maxlength
+                                 "
+                              >
+                                 Campo Invalido
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div>
+                     <div *ngIf="data; else create">
+                        <button
+                           *ngIf="data.id != '62ebccf7102425f843c962c7'"
+                           mat-flat-button
+                           class="btn btn-primary"
+                           style="float: right; margin: 5px"
+                           (click)="updateUser()"
+                        >
+                           Alterar Usuario
+                        </button>
+                        <button
+                           *ngIf="data.id != '62ebccf7102425f843c962c7'"
+                           mat-flat-button
+                           class="btn btn-danger"
+                           style="float: right; margin: 5px"
+                           (click)="removeUser()"
+                        >
+                           Remover Usuario
+                        </button>
+                     </div>
+                     <ng-template #create>
+                        <div>
+                           <button
+                              class="btn btn-primary"
+                              style="float: right"
+                              (click)="createUser()"
+                              [disabled]="user.invalid"
+                           >
+                              Cadastrar Usuario
+                           </button>
+                        </div>
+                     </ng-template>
+                  </div>
+               </form>
             </div>
          </div>
       </div>
-      <div>
-         <div style="margin-left: 70%" *ngIf="data; else create">
-            <button
-               *ngIf="data.id != '62ebccf7102425f843c962c7'"
-               mat-flat-button
-               color="warn"
-               class="button"
-               (click)="removeUser()"
-            >
-               Remover Usuario
-            </button>
-            <button
-               *ngIf="data.id != '62ebccf7102425f843c962c7'"
-               mat-flat-button
-               color="primary"
-               class="button"
-               (click)="updateUser()"
-            >
-               Alterar Usuario
-            </button>
-         </div>
-         <ng-template #create>
-            <div>
-               <button
-                  mat-flat-button
-                  color="primary"
-                  (click)="createUser()"
-                  [disabled]="user.invalid"
-               >
-                  Cadastrar Usuario
-               </button>
-            </div>
-         </ng-template>
-      </div>
-   </form>
+   </div>
 </div>

@@ -1,62 +1,90 @@
-<div class="container-padding">
-   <div class="register-task">
-      <form [formGroup]="task">
-         <h2>Cadastro de Tarefa</h2>
-         <hr />
-         <div>
-            <mat-form-field class="inputComponente" appearance="none">
-               <mat-label>Título</mat-label>
-               <input matInput formControlName="title" id="title" required />
-            </mat-form-field>
-         </div>
-         <div class="divSelectComponente">
-            <mat-form-field class="autoCompleteComponente" appearance="none">
-               <mat-label>Responsavel</mat-label>
-               <input
-                  type="text"
-                  placeholder="Pick one"
-                  matInput
-                  formControlName="responsible"
-                  [matAutocomplete]="auto"
-               />
-               <mat-autocomplete
-                  autoActiveFirstOption
-                  #auto="matAutocomplete"
-                  [displayWith]="getOptionText"
-               >
-                  <mat-option *ngFor="let user of users" [value]="user">
-                     {{ user.name }}
-                  </mat-option>
-               </mat-autocomplete>
-            </mat-form-field>
-         </div>
-         <div class="divSelectComponente">
-            <mat-form-field class="selectComponente" appearance="none">
-               <mat-label class="labelSelect">Status</mat-label>
-               <mat-select formControlName="status" name="status" required>
-                  <mat-option
-                     *ngFor="let option of optionsStatus"
-                     [value]="option.codigo"
+<div class="container">
+   <div class="row justify-content-md-center">
+      <div class="col-md-10">
+         <div class="card card-user">
+            <div class="card-header">
+               <h5 class="card-title">Cadastro de Tarefa</h5>
+            </div>
+            <div class="card-body">
+               <form class="was-validated" [formGroup]="task">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label for="title">Título</label>
+                           <input
+                              class="form-control"
+                              formControlName="title"
+                              id="title"
+                              required
+                           />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6 pr-1">
+                        <div class="form-group">
+                           <mat-label>Responsavel</mat-label>
+                           <input
+                              matInput
+                              class="form-control"
+                              type="text"
+                              placeholder="Selecione um Responsavel"
+                              formControlName="responsible"
+                              [matAutocomplete]="auto"
+                           />
+                           <mat-autocomplete
+                              autoActiveFirstOption
+                              #auto="matAutocomplete"
+                              [displayWith]="getOptionText"
+                           >
+                              <mat-option
+                                 *ngFor="let user of users"
+                                 [value]="user"
+                              >
+                                 {{ user.name }}
+                              </mat-option>
+                           </mat-autocomplete>
+                        </div>
+                     </div>
+                     <div class="col-md-6 pl-1">
+                        <div class="form-group">
+                           <label class="">Status</label>
+                           <select
+                              class="form-select"
+                              id="floatingSelect"
+                              formControlName="status"
+                              required
+                           >
+                              <option
+                                 *ngFor="let option of optionsStatus"
+                                 [value]="option.codigo"
+                              >
+                                 {{ option.descricao }}
+                              </option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="form-group">
+                        <angular-editor
+                           formControlName="description"
+                           [config]="editorConfig"
+                        ></angular-editor>
+                     </div>
+                  </div>
+                  <button
+                     class="btn btn-primary"
+                     style="float: right"
+                     (click)="createTask()"
+                     [disabled]="task.invalid"
                   >
-                     {{ option.descricao }}
-                  </mat-option>
-               </mat-select>
-            </mat-form-field>
+                     Adicionar Tarefa
+                  </button>
+               </form>
+            </div>
          </div>
-         <div class="description">
-            <angular-editor
-               formControlName="description"
-               [config]="editorConfig"
-            ></angular-editor>
-         </div>
-         <button
-            mat-flat-button
-            color="primary"
-            (click)="createTask()"
-            [disabled]="task.invalid"
-         >
-            Adicionar Tarefa
-         </button>
-      </form>
+      </div>
    </div>
 </div>
