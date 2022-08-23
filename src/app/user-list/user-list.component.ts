@@ -6,11 +6,25 @@ import { UserDetailComponent } from 'src/app/user-detail/user-detail.component';
 
 @Component({
    selector: 'app-user',
-   templateUrl: './user-list.component.html',
-   styleUrls: ['../task-list/task-list.component.scss'],
+   template: `<app-list
+      [columns]="columns"
+      [buttonAddFunction]="createUser.bind(this)"
+      [detail]="openDetails.bind(this)"
+      [buttonAddName]="'Adicionar Usuario'"
+      [title]="'Lista de Usuarios'"
+      [fields]="fields"
+      [data]="users"
+   ></app-list> `,
 })
 export class UserListComponent implements OnInit {
    users: User[];
+   columns = [
+      { name: 'Nome', width: '35%' },
+      { name: 'CPF', width: '30%' },
+      { name: 'Email', width: '35%' },
+   ];
+
+   fields = ['name', 'cpf', 'email'];
 
    constructor(private api: ApiService, private dialogRef: MatDialog) {}
 

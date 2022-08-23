@@ -24,6 +24,7 @@ import { TaskDetailComponent } from 'src/app/task-detail/task-detail.component';
 import { ActivityCreateComponent } from 'src/app/activity-create/activity-create.component';
 import { SnackBarComponent } from 'src/app/snack-bar/snack-bar.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { ListComponent } from 'src/app/list/list.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -39,6 +40,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
       TaskDetailComponent,
       ActivityCreateComponent,
       SnackBarComponent,
+      ListComponent,
    ],
    imports: [
       BrowserModule,
@@ -63,6 +65,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
       UserDetailComponent,
       ActivityCreateComponent,
       SnackBarComponent,
+      ListComponent,
    ],
 })
 export class AppModule {}

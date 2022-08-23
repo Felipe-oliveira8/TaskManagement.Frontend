@@ -6,12 +6,35 @@ import { ApiService } from 'src/app/services/api.service';
 
 @Component({
    selector: 'app-task',
-   templateUrl: './task-list.component.html',
-   styleUrls: ['./task-list.component.scss'],
+   template: `<app-list
+      [columns]="columns"
+      [buttonAddFunction]="createTask.bind(this)"
+      [detail]="taskDetail.bind(this)"
+      [buttonAddName]="'Adicionar Tarefa'"
+      [title]="'Lista de Tarefas'"
+      [fields]="fields"
+      [data]="tasks"
+   ></app-list> `,
 })
 export class TaskListComponent implements OnInit {
    tasks: Task[];
    status = StatusTask;
+
+   columns = [
+      { name: 'Número', width: '10%' },
+      { name: 'Título', width: '35%' },
+      { name: 'Status', width: '15%' },
+      { name: 'Gerador', width: '20%' },
+      { name: 'Responsavel', width: '20%' },
+   ];
+
+   fields = [
+      'sequenceNumber',
+      'title',
+      'status',
+      'generatorName',
+      'responsibleName',
+   ];
 
    constructor(private router: Router, private api: ApiService) {}
 
