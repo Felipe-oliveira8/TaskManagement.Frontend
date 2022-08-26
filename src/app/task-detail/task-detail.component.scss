@@ -1,58 +1,3 @@
-.mat-dialog-padding {
-   padding: 2px;
-}
-
-.mat-dialog-size {
-   width: 35rem;
-}
-
-.col-6 {
-   position: relative;
-   width: 100%;
-   min-height: 1px;
-   padding-left: 5px;
-   padding-right: 5px;
-   flex: 0 0 75%;
-   max-width: 75%;
-}
-
-.col-4 {
-   flex: 0 0 25%;
-   max-width: 100%;
-
-   .component {
-      display: block;
-      width: 100%;
-      height: auto;
-      padding: 0.375rem 0.75rem;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #495057;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid #ced4da;
-      border-radius: 0.25rem;
-      margin: 10px 0;
-   }
-}
-
-.card-padding {
-   padding: 15px;
-   margin: 15px;
-}
-
-.row {
-   display: flex;
-   flex-wrap: wrap;
-   margin-left: 15px;
-   margin-right: 15px;
-}
-
-.button {
-   margin: 5px;
-   width: 150px;
-}
-
 .activityList {
    display: flex;
    flex-direction: column;
@@ -73,4 +18,8 @@
       overflow-y: auto;
       word-break: break-word;
    }
+}
+
+form .form-group {
+   margin-bottom: 10px;
 }

@@ -1,9 +1,13 @@
 <div class="container-padding">
    <div class="register-task">
+      <div class="modal-header">
+         <h2 class="modal-title">Cadastro de Atividade</h2>
+         <div class="divClose" (click)="fechar()">
+            <mat-icon>close</mat-icon>
+         </div>
+      </div>
       <form [formGroup]="activity">
-         <h2>Cadastro de Atividade</h2>
          <hr />
-
          <div>
             <mat-form-field class="component" appearance="none">
                <mat-label>Status</mat-label>

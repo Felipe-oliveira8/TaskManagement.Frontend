@@ -25,6 +25,7 @@ import { ActivityCreateComponent } from 'src/app/activity-create/activity-create
 import { SnackBarComponent } from 'src/app/snack-bar/snack-bar.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { ListComponent } from 'src/app/list/list.component';
+import { SidebarComponent } from 'src/app/sidebar/sidebar.component';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -32,6 +33,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
       AppComponent,
       HomeComponent,
       HeaderComponent,
+      SidebarComponent,
       Login,
       TaskListComponent,
       UserListComponent,

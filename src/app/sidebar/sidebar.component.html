@@ -1,0 +1,69 @@
+<div class="container-fluid" *ngIf="isLoggedIn">
+   <div class="row flex-nowrap">
+      <div class="col-md-3 col-xl-2 px-sm-2 flex-shrink-0 bg-light">
+         <div
+            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100"
+         >
+            <a
+               href="/"
+               class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+            >
+               <span class="fs-5 d-none d-sm-inline">Menu</span>
+            </a>
+            <hr style="width: 100%" />
+            <ul class="nav nav-pills flex-column mb-auto" id="menu">
+               <li class="nav-item" *ngFor="let item of items">
+                  <a
+                     class="nav-link align-middle px-0 link-dark"
+                     [routerLink]="[item.path]"
+                  >
+                     <i class="{{ item.icon }}" style="font-size: 1rem"></i>
+                     <span class="ms-1 d-none d-sm-inline">{{
+                        item.title
+                     }}</span>
+                  </a>
+               </li>
+            </ul>
+            <hr style="width: 100%" />
+            <div class="dropdown pb-4">
+               <a
+                  href="#"
+                  class="d-flex align-items-center text-black text-decoration-none dropdown-toggle"
+                  id="dropdownUser1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+               >
+                  <img
+                     src="https://github.com/Felipe-oliveira8.png"
+                     alt=""
+                     width="30"
+                     height="30"
+                     class="rounded-circle"
+                  />
+                  <span class="d-none d-sm-inline mx-1">Perfil</span>
+               </a>
+               <ul
+                  class="dropdown-menu dropdown-menu-dark text-small shadow"
+                  aria-labelledby="dropdownUser1"
+               >
+                  <li>
+                     <button class="dropdown-item" (click)="onLogout()">
+                        Deslogar
+                     </button>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- <div
+         style="
+            width: 1.5rem;
+            border: rgba(0, 0, 0, 0.15);
+            background-color: rgba(0, 0, 0, 0.1);
+         "
+      ></div> -->
+      <div class="col py-3" style="background-color: rgba(0, 0, 0, 0.1)">
+         <router-outlet></router-outlet>
+      </div>
+   </div>
+</div>

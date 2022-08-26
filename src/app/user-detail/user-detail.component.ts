@@ -57,4 +57,8 @@ export class UserDetailComponent implements OnInit {
       await this.api.updateUser(this.user.getRawValue());
       this.dialogRef.close(this.user.getRawValue());
    }
+
+   fechar() {
+      this.dialogRef.close();
+   }
 }

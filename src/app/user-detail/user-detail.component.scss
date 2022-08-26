@@ -1,3 +1,21 @@
 .card-body form .form-group {
    margin-bottom: 20px;
 }
+
+.divClose {
+   background: #433c36;
+   border-radius: 50%;
+   height: 24px;
+   width: 24px;
+   color: white;
+   cursor: pointer;
+
+   .mat-icon {
+      height: 20px;
+      width: 20px;
+      font-size: 20px;
+      left: 2px;
+      top: 2px;
+      position: relative;
+   }
+}

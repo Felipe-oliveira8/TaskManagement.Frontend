@@ -32,7 +32,7 @@ export class ActivityCreateComponent implements OnInit {
       spellcheck: true,
       height: 'auto',
       minHeight: '150px',
-      maxHeight: 'auto',
+      maxHeight: '400px',
       width: 'auto',
       minWidth: '300px',
       enableToolbar: true,
@@ -87,5 +87,9 @@ export class ActivityCreateComponent implements OnInit {
    async createActivity() {
       await this.api.createActivity(this.activity.getRawValue());
       this.dialogRef.close(this.activity.getRawValue());
+   }
+
+   fechar() {
+      this.dialogRef.close();
    }
 }

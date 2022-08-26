@@ -46,3 +46,10 @@ export interface IOption {
    codigo: string | number;
    descricao: string;
 }
+
+export interface InfoRoute {
+   path: string;
+   title: string;
+   icon: string;
+   class: string;
+}

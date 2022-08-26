@@ -1,7 +1,7 @@
 <div>
    <form [formGroup]="taskForm">
       <div class="row">
-         <div class="col-6">
+         <div class="col-md-8">
             <div class="card card-padding">
                <div>
                   <h2>{{ taskForm.get('title').value }}</h2>
@@ -42,35 +42,46 @@
             </div>
          </div>
 
-         <div class="col-4">
+         <div class="col-md-4">
             <div class="card card-padding">
-               <mat-form-field class="component" appearance="none">
-                  <mat-label>Status</mat-label>
-                  <mat-select formControlName="status" name="status" disabled>
-                     <mat-option
+               <div class="form-group">
+                  <label>Status</label>
+                  <select
+                     class="form-select"
+                     id="floatingSelect"
+                     formControlName="status"
+                     disabled
+                     required
+                  >
+                     <option
                         *ngFor="let option of optionsStatus"
                         [value]="option.codigo"
                      >
                         {{ option.descricao }}
-                     </mat-option>
-                  </mat-select>
-               </mat-form-field>
-               <mat-form-field class="component" appearance="none">
-                  <mat-label>Gerador</mat-label>
+                     </option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label for="generatorName">Gerador</label>
                   <input
-                     matInput
-                     disabled
+                     class="form-control"
+                     formControlName="generatorName"
+                     id="generatorName"
                      [value]="taskForm.get('generatorName').value"
-                  />
-               </mat-form-field>
-               <mat-form-field class="component" appearance="none">
-                  <mat-label>Responsável</mat-label>
-                  <input
-                     matInput
                      disabled
-                     [value]="taskForm.get('responsibleName').value"
                   />
-               </mat-form-field>
+               </div>
+
+               <div class="form-group">
+                  <label for="responsibleName">Responsável</label>
+                  <input
+                     class="form-control"
+                     formControlName="responsibleName"
+                     id="responsibleName"
+                     [value]="taskForm.get('responsibleName').value"
+                     disabled
+                  />
+               </div>
             </div>
          </div>
       </div>
