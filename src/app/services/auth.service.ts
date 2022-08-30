@@ -8,9 +8,9 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthService {
-   loggedIn$ = new BehaviorSubject<boolean>(false);
+   public loggedIn$ = new BehaviorSubject<boolean>(false);
 
-   isLoggedIn() {
+   public isLoggedIn(): boolean {
       if (localStorage.getItem('token')) {
          this.loggedIn$.next(true);
          return true;
@@ -26,7 +26,7 @@ export class AuthService {
       private dialog: DialogService
    ) {}
 
-   async authenticate(user: Login) {
+   public async authenticate(user: Login) {
       const Url = environment.api + '/authenticate';
       const body = user;
       this.httpClient.post<Logged>(Url, body).subscribe(
@@ -47,7 +47,7 @@ export class AuthService {
       );
    }
 
-   logout() {
+   public logout() {
       localStorage.clear();
       this.loggedIn$.next(false);
       this.router.navigate(['/login']);

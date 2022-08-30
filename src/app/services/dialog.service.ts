@@ -8,7 +8,7 @@ import { SnackBarComponent } from 'src/app/snack-bar/snack-bar.component';
 export class DialogService {
    constructor(private snackBar: MatSnackBar) {}
 
-   openError(msg: string, error: string) {
+   public openError(msg: string, error: string) {
       this.snackBar.openFromComponent(SnackBarComponent, {
          duration: 5000,
          data: { message: msg, error },
@@ -16,7 +16,7 @@ export class DialogService {
       });
    }
 
-   openSuccess(msg: string) {
+   public openSuccess(msg: string) {
       this.snackBar.openFromComponent(SnackBarComponent, {
          duration: 3000,
          data: { message: msg },

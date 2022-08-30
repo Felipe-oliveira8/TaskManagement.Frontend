@@ -20,7 +20,7 @@ import { AuthGuard } from 'src/app/guard/auth.guard';
    providers: [AuthGuard],
 })
 export class HeaderComponent implements OnInit {
-   isLoggedIn = this.authService.isLoggedIn();
+   public isLoggedIn = this.authService.isLoggedIn();
 
    constructor(private authService: AuthService, private router: Router) {}
 

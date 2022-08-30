@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
    ];
    constructor(private authService: AuthService) {}
 
-   isLoggedIn = this.authService.isLoggedIn();
+   private isLoggedIn = this.authService.isLoggedIn();
 
    ngOnInit() {
       this.authService.loggedIn$.subscribe((element) => {
@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit {
       });
    }
 
-   onLogout() {
+   public onLogout(): void {
       this.authService.logout();
    }
 }

@@ -4,7 +4,7 @@
          <div class="card card-user">
             <div class="modal-header">
                <h2 class="modal-title">Cadastro de Usuarios</h2>
-               <div class="divClose" (click)="fechar()">
+               <div class="divClose" (click)="close()">
                   <mat-icon>close</mat-icon>
                </div>
             </div>
@@ -118,8 +118,7 @@
                               class="form-control"
                               formControlName="tel"
                               id="tel"
-                              [dropSpecialCharacters]="false"
-                              mask="(00) 00000-0000"
+                              appMask="phone"
                               [ngClass]="{
                                  'is-invalid': user.get('tel').errors
                               }"
@@ -147,8 +146,7 @@
                               class="form-control"
                               formControlName="cpf"
                               id="cpf"
-                              mask="000.000.000-00"
-                              [dropSpecialCharacters]="false"
+                              appMask="cpf"
                               [ngClass]="{
                                  'is-invalid': user.get('cpf').errors
                               }"

@@ -1,6 +1,6 @@
 export enum StatusTask {
-   'Não Iniciada' = 0,
-   'Em Andamento',
-   'Aguardando',
-   'Concluido',
+   'notStarted' = 0,
+   'inProgress',
+   'waiting',
+   'concluded',
 }

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +25,8 @@ import { SnackBarComponent } from 'src/app/snack-bar/snack-bar.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { ListComponent } from 'src/app/list/list.component';
 import { SidebarComponent } from 'src/app/sidebar/sidebar.component';
+import { StatusPipe } from 'src/app/Pipes/status.pipe';
+import { MaskDirective } from 'src/app/mask/mask.directive';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -43,6 +44,8 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
       ActivityCreateComponent,
       SnackBarComponent,
       ListComponent,
+      StatusPipe,
+      MaskDirective,
    ],
    imports: [
       BrowserModule,

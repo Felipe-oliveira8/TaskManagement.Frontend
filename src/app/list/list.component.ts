@@ -7,10 +7,10 @@ import { StatusTask } from 'src/app/Enums/enum';
    styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-   status = StatusTask;
+   public status = StatusTask;
    @Input() columns: [];
-   @Input() buttonAddFunction: Function;
-   @Input() public detail: (item) => any;
+   @Input() buttonAddFunction: () => void;
+   @Input() public detail: (item: object) => any;
    @Input() buttonAddName: string;
    @Input() title: string;
    @Input() fields: [];
@@ -20,24 +20,24 @@ export class ListComponent implements OnInit {
 
    ngOnInit() {}
 
-   classStatus(status: string) {
+   public classStatus(status: number) {
       switch (status) {
-         case 'Não Iniciada':
+         case 0:
             return 'not-started';
-         case 'Em Andamento':
+         case 1:
             return 'in-progress';
-         case 'Aguardando':
+         case 2:
             return 'waiting';
-         case 'Concluido':
+         case 3:
             return 'concluded';
       }
    }
 
-   clickAdd() {
+   public clickAdd(): void {
       this.buttonAddFunction();
    }
 
-   clickLine(item) {
+   public clickLine(item: object) {
       this.detail(item);
    }
 }

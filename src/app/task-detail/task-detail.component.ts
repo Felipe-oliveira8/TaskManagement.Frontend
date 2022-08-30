@@ -12,11 +12,11 @@ import { ApiService } from 'src/app/services/api.service';
    styleUrls: ['./task-detail.component.scss'],
 })
 export class TaskDetailComponent implements OnInit {
-   tasks: Task[];
-   taskId: string;
-   activityList: Activity[];
+   public tasks: Task[];
+   public taskId: string;
+   public activityList: Activity[];
 
-   taskForm = this.formBuilder.group({
+   public taskForm = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       status: ['', Validators.required],
@@ -25,7 +25,7 @@ export class TaskDetailComponent implements OnInit {
       responsibleName: [''],
    });
 
-   optionsStatus: Array<IOption> = [
+   public optionsStatus: Array<IOption> = [
       { codigo: 0, descricao: 'Não Iniciada' },
       { codigo: 1, descricao: 'Em Andamento' },
       { codigo: 2, descricao: 'Aguardando' },
@@ -45,17 +45,17 @@ export class TaskDetailComponent implements OnInit {
       this.getActivities();
    }
 
-   async getTaskById() {
+   public async getTaskById(): Promise<void> {
       const result = await this.api.getTask(this.taskId);
       this.taskForm.patchValue(result);
    }
 
-   async getActivities() {
+   public async getActivities(): Promise<void> {
       const result = await this.api.getActivities(this.taskId);
       this.activityList = result;
    }
 
-   createActivity() {
+   public createActivity(): void {
       const dialog = this.dialogRef.open(ActivityCreateComponent, {
          data: { id: this.taskId, status: this.taskForm.get('status').value },
       });

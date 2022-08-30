@@ -17,14 +17,14 @@ import { UserDetailComponent } from 'src/app/user-detail/user-detail.component';
    ></app-list> `,
 })
 export class UserListComponent implements OnInit {
-   users: User[];
-   columns = [
+   public users: User[];
+   public columns = [
       { name: 'Nome', width: '35%' },
       { name: 'CPF', width: '30%' },
       { name: 'Email', width: '35%' },
    ];
 
-   fields = ['name', 'cpf', 'email'];
+   public fields = ['name', 'cpf', 'email'];
 
    constructor(private api: ApiService, private dialogRef: MatDialog) {}
 
@@ -32,12 +32,12 @@ export class UserListComponent implements OnInit {
       this.getUsers();
    }
 
-   async getUsers() {
+   public async getUsers(): Promise<void> {
       const result = await this.api.getUsers();
       this.users = result;
    }
 
-   openDetails(user: User) {
+   public openDetails(user: User): void {
       const modal = this.dialogRef.open(UserDetailComponent, { data: user });
       modal.afterClosed().subscribe((data) => {
          const index = this.users.findIndex(
@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit {
       });
    }
 
-   createUser() {
+   public createUser(): void {
       const modal = this.dialogRef.open(UserDetailComponent);
       modal.afterClosed().subscribe((data) => {
          if (data) {

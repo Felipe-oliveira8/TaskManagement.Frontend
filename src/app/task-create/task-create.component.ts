@@ -12,10 +12,10 @@ import { ApiService } from 'src/app/services/api.service';
    encapsulation: ViewEncapsulation.None,
 })
 export class TaskCreateComponent implements OnInit {
-   tasks: Task[];
-   users: User[];
+   public tasks: Task[];
+   public users: User[];
 
-   task = this.formBuilder.group({
+   public task = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       status: ['', Validators.required],
@@ -24,7 +24,7 @@ export class TaskCreateComponent implements OnInit {
       responsibleName: [''],
    });
 
-   editorConfig: AngularEditorConfig = {
+   public editorConfig: AngularEditorConfig = {
       editable: true,
       spellcheck: true,
       height: 'auto',
@@ -73,7 +73,7 @@ export class TaskCreateComponent implements OnInit {
       private api: ApiService
    ) {}
 
-   optionsStatus: Array<IOption> = [
+   public optionsStatus: Array<IOption> = [
       { codigo: 0, descricao: 'Não Iniciada' },
       { codigo: 1, descricao: 'Em Andamento' },
       { codigo: 2, descricao: 'Aguardando' },
@@ -85,12 +85,12 @@ export class TaskCreateComponent implements OnInit {
       this.task.get('status').setValue(0);
    }
 
-   async getResponsible() {
+   public async getResponsible(): Promise<void> {
       const result = await this.api.getUsers();
       this.users = result;
    }
 
-   async createTask() {
+   public async createTask(): Promise<void> {
       this.task
          .get('responsibleId')
          .setValue(this.task.get('responsible').value.id);
@@ -103,7 +103,7 @@ export class TaskCreateComponent implements OnInit {
          .then(() => this.router.navigate(['/task/list']));
    }
 
-   getOptionText(option) {
+   public getOptionText(option): string {
       return option.name;
    }
 }

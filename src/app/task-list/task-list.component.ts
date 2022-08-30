@@ -17,10 +17,10 @@ import { ApiService } from 'src/app/services/api.service';
    ></app-list> `,
 })
 export class TaskListComponent implements OnInit {
-   tasks: Task[];
-   status = StatusTask;
+   public tasks: Task[];
+   public status = StatusTask;
 
-   columns = [
+   public columns = [
       { name: 'Número', width: '10%' },
       { name: 'Título', width: '35%' },
       { name: 'Status', width: '15%' },
@@ -28,7 +28,7 @@ export class TaskListComponent implements OnInit {
       { name: 'Responsavel', width: '20%' },
    ];
 
-   fields = [
+   public fields = [
       'sequenceNumber',
       'title',
       'status',
@@ -42,20 +42,20 @@ export class TaskListComponent implements OnInit {
       this.getTasks();
    }
 
-   async getTasks() {
+   public async getTasks(): Promise<void> {
       const result = await this.api.getTasks();
       this.tasks = result;
    }
 
-   createTask() {
+   public createTask(): void {
       this.router.navigate(['/task/create']);
    }
 
-   taskDetail(task: Task) {
+   public taskDetail(task: Task): void {
       this.router.navigate([`/task/${task.taskId}`]);
    }
 
-   classStatus(status: string) {
+   public classStatus(status: string): string {
       switch (status) {
          case 'Não Iniciada':
             return 'not-started';

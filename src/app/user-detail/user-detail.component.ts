@@ -11,9 +11,9 @@ import { ApiService } from 'src/app/services/api.service';
    styleUrls: ['./user-detail.component.scss'],
 })
 export class UserDetailComponent implements OnInit {
-   users: User[];
+   public users: User[];
 
-   user = this.formBuilder.group({
+   public user = this.formBuilder.group({
       id: [null],
       user: [null, [Validators.required]],
       password: [null, [Validators.required]],
@@ -42,23 +42,23 @@ export class UserDetailComponent implements OnInit {
       }
    }
 
-   async createUser() {
+   public async createUser(): Promise<void> {
       const response = await this.api.createUser(this.user.getRawValue());
       this.user.get('id').setValue(response.id);
       this.dialogRef.close(this.user.getRawValue());
    }
 
-   async removeUser() {
+   public async removeUser(): Promise<void> {
       await this.api.deleteUser(this.user.get('id').value);
       this.dialogRef.close(this.user.get('id').value);
    }
 
-   async updateUser() {
+   public async updateUser(): Promise<void> {
       await this.api.updateUser(this.user.getRawValue());
       this.dialogRef.close(this.user.getRawValue());
    }
 
-   fechar() {
+   public close(): void {
       this.dialogRef.close();
    }
 }

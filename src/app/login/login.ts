@@ -17,7 +17,7 @@ export class Login implements OnInit {
 
    ngOnInit(): void {}
 
-   async authenticate() {
+   public async authenticate() {
       await this.auth.authenticate(this.dataUser.getRawValue());
    }
 }

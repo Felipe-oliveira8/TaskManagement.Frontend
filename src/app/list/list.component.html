@@ -33,11 +33,11 @@
                            }}</label>
                            <ng-template #button>
                               <button
-                                 class="status {{
-                                    classStatus(status[item[field]])
-                                 }}"
+                                 class="status {{ classStatus(item[field]) }}"
                               >
-                                 {{ status[item[field]] }}
+                                 {{
+                                    item[field] | enumStatusDescription: status
+                                 }}
                               </button>
                            </ng-template>
                         </td>

@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment';
 import { Activity, Task, User } from 'src/app/comum/interfaces';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { Observable } from 'rxjs';
 
 @Injectable({
    providedIn: 'root',
@@ -16,7 +15,7 @@ export class ApiService {
       private authService: AuthService
    ) {}
 
-   getUsers() {
+   public getUsers() {
       return new Promise<User[]>((resolve, reject) => {
          this.http.get<User[]>(`${environment.api}/user/list`).subscribe(
             (result) => {
@@ -36,7 +35,7 @@ export class ApiService {
       });
    }
 
-   updateUser(user: User) {
+   public updateUser(user: User) {
       return new Promise((resolve, reject) => {
          this.http.put<User>(`${environment.api}/user`, user).subscribe(
             (result) => {
@@ -57,7 +56,7 @@ export class ApiService {
       });
    }
 
-   createUser(user: User) {
+   public createUser(user: User) {
       return new Promise<User>((resolve, reject) => {
          this.http.post<User>(`${environment.api}/user`, user).subscribe(
             (response) => {
@@ -78,7 +77,7 @@ export class ApiService {
       });
    }
 
-   deleteUser(id: string) {
+   public deleteUser(id: string) {
       return new Promise((resolve, reject) => {
          this.http.delete(`${environment.api}/user/${id}`).subscribe(
             (result) => {
@@ -99,7 +98,7 @@ export class ApiService {
       });
    }
 
-   createTask(task: Task) {
+   public createTask(task: Task) {
       return new Promise((resolve, reject) => {
          this.http.post<Task>(`${environment.api}/task`, task).subscribe(
             (result) => {
@@ -120,7 +119,7 @@ export class ApiService {
       });
    }
 
-   getTasks() {
+   public getTasks() {
       return new Promise<Task[]>((resolve, reject) => {
          this.http.get<Task[]>(`${environment.api}/task/list`).subscribe(
             (result) => {
@@ -140,7 +139,7 @@ export class ApiService {
       });
    }
 
-   getTask(taskId: string) {
+   public getTask(taskId: string) {
       return new Promise((resolve, reject) => {
          this.http.get<Task>(`${environment.api}/task/${taskId}`).subscribe(
             (result) => {
@@ -160,7 +159,7 @@ export class ApiService {
       });
    }
 
-   getActivities(taskId: string) {
+   public getActivities(taskId: string) {
       return new Promise<Activity[]>((resolve, reject) => {
          this.http
             .get<Activity[]>(`${environment.api}/task/activity-list/${taskId}`)
@@ -182,7 +181,7 @@ export class ApiService {
       });
    }
 
-   createActivity(activity: Activity) {
+   public createActivity(activity: Activity) {
       return new Promise((resolve, reject) => {
          this.http
             .post<Activity>(`${environment.api}/task/activity`, activity)
